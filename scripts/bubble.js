@@ -11,9 +11,8 @@ $(document).ready(function(){
       // Works only with children
       // TODO: inspect why works only with children key
       dataset.children = newData;
-      console.log(newData)
 
-      var diameter = 1500;
+      var diameter = 2500;
 
       // /////////////////////////////////////////////////////////////////////////////////////////////
       // Google material guideline colors
@@ -58,7 +57,7 @@ $(document).ready(function(){
                   return d.facilityId + ": " + d.playcount;
               });
 
-      node.append("rect")
+      node.append("circle")
               .attr("r", function(d) {
                   return d.r;
               })
@@ -69,7 +68,7 @@ $(document).ready(function(){
       // Add artist name into circle
       node.append("text")
               .attr("dy", ".3em")
-              .attr('font-size',7)
+              .attr('font-size',10)
               .style('fill','#fff')
               .style('text-anchor','middle')
               .text(function(d) {
@@ -79,7 +78,7 @@ $(document).ready(function(){
       // Add song name into circle
       node.append("text")
               .attr("dy", "1.5em")
-              .attr('font-size',12)
+              .attr('font-size',17)
               .style('fill','#fff')
               .style('text-anchor','middle')
               .text(function(d) {
@@ -91,7 +90,7 @@ $(document).ready(function(){
     },
 
     loadFeaturedSongsData: function(){
-      var url = "http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&limit=15&api_key=fb6cc40c61b7d40e0016afc774b135f5&format=json";
+      var url = "http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=fb6cc40c61b7d40e0016afc774b135f5&format=json";
       $.ajax({
         url: url,
         method: 'get',
